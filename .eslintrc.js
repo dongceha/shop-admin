@@ -1,4 +1,10 @@
 module.exports = {
+  globals: {
+    defineProps: 'readonly',
+    defineEmits: 'readonly',
+    defineExpose: 'readonly',
+    withDefaults: 'readonly'
+  },
   env: {
     browser: true,
     es2021: true
@@ -17,5 +23,13 @@ module.exports = {
     '@typescript-eslint'
   ],
   rules: {
-  }
+  },
+  overrides: [
+    {
+      files: ['src/api/**/*.js', 'src/api/types/*.js'],
+      rules: {
+        camelcase: 'off'
+      }
+    }
+  ]
 }
